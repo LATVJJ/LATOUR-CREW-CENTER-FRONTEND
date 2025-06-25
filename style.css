@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Dejavu Sans, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+}
+
+header {
+    background-color: #172a40;
+    color: white;
+    padding: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #ea051d;
+    color: White;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/* style.css */
+
+/* ... (seu CSS existente) ... */
+
+.content-section.hidden {
+    display: none; /* Isso esconde o elemento */
+}
+.hidden {
+    display: none;
+}
+/* Styles for Profile Page Dashboard */
+.profile-dashboard {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-dashboard h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.profile-dashboard p {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.profile-dashboard p strong {
+    color: #555;
+}
+
+/* Styles for Active Flight Section */
+.active-flight-section {
+    background-color: #e0f7fa; /* Light blue background */
+    border: 1px solid #b2ebf2;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.active-flight-section h3 {
+    color: #00796b; /* Darker blue-green */
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #80deea;
+    padding-bottom: 10px;
+}
+
+#active-booking-details p {
+    margin-bottom: 5px;
+    font-size: 1.05em;
+}
+
+/* Styles for PIREP History Controls (Filters) */
+.pirep-history-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.pirep-history-controls label {
+    font-weight: bold;
+    color: #333;
+}
+
+.pirep-history-controls select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.pirep-history-controls select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* General PIREP History List styling */
+#pirep-history-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#pirep-history-list li {
+    background-color: #fefefe;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    line-height: 1.5;
+}
+
+#pirep-history-list li strong {
+    color: #0056b3;
+}
+
+/* Horizontal Rule for separation */
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 30px 0;
+}
+
+/* Adjustments for the PIREP message */
+.message {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.message[style*="color: green"] {
+    background-color: #e6ffe6;
+    border-color: #4CAF50;
+}
+
+.message[style*="color: red"] {
+    background-color: #ffe6e6;
+    border-color: #f44336;
+}
+
+.message[style*="color: blue"] {
+    background-color: #e6f7ff;
+    border-color: #2196F3;
+}
+
+.message[style*="color: orange"] {
+    background-color: #fff3e6;
+    border-color: #ff9800;
+}
+/* Styles for Charts Section */
+.profile-charts {
+    background-color: #f2f7ff;
+    border: 1px solid #cceeff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-charts h3 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #aaddff;
+    padding-bottom: 10px;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%; /* Ajuste conforme necessário */
+    height: 300px; /* Altura padrão para os gráficos */
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho total */
+}
+
+/* Para responsividade em telas menores */
+@media (max-width: 768px) {
+    .profile-charts {
+        padding: 15px;
+    }
+    .chart-container {
+        height: 250px; /* Reduz a altura dos gráficos em telas menores */
+        margin-bottom: 15px;
+    }
+}

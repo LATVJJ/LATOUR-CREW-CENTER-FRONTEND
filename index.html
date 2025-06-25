@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LATOUR Crew Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>LATOUR Crew Center</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="nav-home">Home</a></li>
+                <li><a href="#" id="nav-fleet">Fleet</a></li>
+                <li><a href="#" id="nav-hubs">Hubs</a></li>
+                <li><a href="#" id="nav-profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <div id="auth-section" class="content-section">
+        <div id="login-container">
+            <h3>Login</h3>
+            <p id="auth-message"></p>
+            <form id="login-form">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" required>
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="show-register">Register here</a>.</p>
+        </div>
+
+        <div id="register-container" class="hidden">
+            <h3>Register</h3>
+            <form id="register-form">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" required>
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" required>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="show-login">Login here</a>.</p>
+        </div>
+    </div>
+
+
+    <div id="crew-center-dashboard" class="content-section hidden"> 
+        <div id="home-content">
+            <h2>Welcome, Pilot!</h2>
+            <p>Here you can manage your flights. <span id="pilot-username"></span></p>
+        </div>
+
+        <div id="fleet-content" class="hidden">
+            <h2>Our Fleet</h2>
+            <div class="filters">
+                <label for="airport-filter">Filter by Airport:</label>
+                <select id="airport-filter">
+                    <option value="">All Airports</option>
+                    <option value="SBGR">SBGR</option>
+                    <option value="KJFK">KJFK</option>
+                    <option value="SBGL">SBGL</option>
+                    <option value="EHAM">EHAM</option>
+                </select>
+            </div>
+            <p id="fleet-message" class="message"></p>
+            <div class="fleet-list" id="aircraft-list-container">
+            </div>
+        </div>
+
+        <div id="hubs-content" class="hidden">
+            <h2>Our Hubs</h2>
+            <p>Here you will find information about LATOUR's main operational bases.</p>
+            <ul>
+                <li><strong>SBGR - Guarulhos, Brazil:</strong> Our main international hub, offering a wide range of domestic and international routes.</li>
+                <li><strong>KJFK - New York, USA:</strong> Our North American base, a gateway to transatlantic flights and key routes within the Americas.</li>
+                <li><strong>EHAM - Amsterdam, Netherlands:</strong> Serving as our European operational base, connecting flights across Europe and beyond.</li>
+            </ul>
+        </div>
+
+        <div id="profile-content" class="hidden">
+            <h2>Pilot Profile</h2>
+            <div class="profile-dashboard">
+                <h3>Your Flight Statistics</h3>
+                <p><strong>Total PIREPs Filed:</strong> <span id="stat-total-pireps">0</span></p>
+                <p><strong>Total Flight Hours:</strong> <span id="stat-total-flight-hours">0.0</span> hrs</p>
+                <p><strong>Favorite Aircraft:</strong> <span id="stat-favorite-aircraft">N/A</span></p>
+                <p><strong>Most Flown Origin:</strong> <span id="stat-most-flown-origin">N/A</span></p>
+            </div>
+
+            <hr>
+
+            <button id="toggle-file-pirep-btn" class="toggle-button">File New PIREP</button>
+            <div id="file-pirep-form-container" class="form-container hidden">
+                <h3>File a New PIREP</h3>
+                <p id="pirep-message" class="message"></p>
+                <form id="pirep-form">
+                    <label for="pirep-aircraft-id">Aircraft Registration:</label>
+                    <input type="text" id="pirep-aircraft-id" placeholder="e.g., PR-MBN" required readonly>
+
+                    <label for="pirep-flight-number">Flight Number:</label>
+                    <input type="text" id="pirep-flight-number" placeholder="e.g., LA1001" required>
+
+                    <label for="pirep-origin">Origin ICAO:</label>
+                    <input type="text" id="pirep-origin" placeholder="e.g., SBGR" required>
+
+                    <label for="pirep-destination">Destination ICAO:</label>
+                    <input type="text" id="pirep-destination" placeholder="e.g., KJFK" required>
+
+                    <label for="pirep-flight-time">Flight Time (Hours.Minutes):</label>
+                    <input type="text" id="pirep-flight-time" placeholder="e.g., 2.30 for 2h 30m" required>
+
+                    <button type="button" id="file-pirep-btn">File PIREP</button>
+                </form>
+            </div>
+
+            <hr>
+
+            <div class="active-flight-section">
+                <h3>Your Current Booking</h3>
+                <div id="active-booking-details">
+                    <p>No aircraft currently booked.</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="profile-charts">
+                <h3>Flight Analytics</h3>
+                <div class="chart-container">
+                    <canvas id="aircraftTypeChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="originAirportChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="destinationAirportChart"></canvas>
+                </div>
+            </div>
+            <hr>
+
+            <h3>PIREP History</h3>
+            <div class="pirep-history-controls">
+                <label for="pirep-history-filter-aircraft">Filter by Aircraft:</label>
+                <select id="pirep-history-filter-aircraft">
+                    <option value="">All Aircraft</option>
+                </select>
+                <label for="pirep-history-filter-origin">Filter by Origin:</label>
+                <select id="pirep-history-filter-origin">
+                    <option value="">All Origins</option>
+                </select>
+                <label for="pirep-history-filter-destination">Filter by Destination:</label>
+                <select id="pirep-history-filter-destination">
+                    <option value="">All Destinations</option>
+                </select>
+            </div>
+            <div id="pirep-history-list">
+                <p>No PIREPs filed yet.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+    <footer>
+        <p>&copy; 2025 LATOUR Virtual Airlines</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

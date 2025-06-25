@@ -1,0 +1,32 @@
+# .gitignore para o frontend do LATOUR Crew Center
+
+# Logs gerados por gerenciadores de pacotes (se você usar npm/yarn no futuro para alguma coisa)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Arquivos de configurações de editores de código (não precisam ir para o repositório)
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Arquivos específicos do macOS (se você usa Mac)
+.DS_Store
+
+# Arquivos de cache de navegadores ou ferramentas (se aparecerem)
+*.tmp
+*.log
+Salve o arquivo .gitignore.
+Faça o Commit e Push para o GitHub:
+
+Volte para o terminal (que você abriu no passo 1 e já está na pasta LATOUR-CREW-CENTER-FRONTEND).
+Adicione todos os novos arquivos para o stage:
+Bash
+
+git add .
+Faça o commit das alterações:
+Bash
+
+git commit -m "Add initial frontend files and .gitignore"
